@@ -3,7 +3,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    return render(request, 'global/home.html')
+    return render(request, 'home.html', context={
+        'name': 'Matheus Augusto',
+    })
 
 
 def sobre(request):
@@ -11,5 +13,5 @@ def sobre(request):
 
 
 def contato(request):
-    return HttpResponse('CONTATO')
+    return render(request, 'me-apague/temp.html')
 
