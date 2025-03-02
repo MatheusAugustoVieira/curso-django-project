@@ -31,14 +31,12 @@ class RecipeViewsTest(RecipeTestBase):
         response = self.client.get(reverse('recipes:home'))
         self.assertTemplateUsed(response, 'recipes/pages/home.html')
 
-
     def test_recipe_home_template_shows_no_recipes_found_if_no_recipes(self):
         response = self.client.get(reverse('recipes:home'))
         self.assertIn(
             '<h1>No recipes found here 🥲</h1>',
             response.content.decode('utf-8')
         )
-        
         
     def test_recipe_home_template_loads_recipes(self):
         # Need a recipe for this test
@@ -52,12 +50,25 @@ class RecipeViewsTest(RecipeTestBase):
         self.assertIn('Recipe Title', content)
         self.assertEqual(len(response_context_recipes), 1)
 
+
+    def test_recipe_home_template_dont_load_recipes_not_published(self):
         
+        '''Test recipe is_published False dont show'''
+        # Need a recipe for this test
+        self.make_recipe(is_published=False)
+
+        response = self.client.get(reverse('recipes:home'))
+
+        # Check if one recipe exists
+        self.assertIn(
+            '<h1>No recipes found here 🥲</h1>',
+            response.content.decode('utf-8')
+        )
+
    # Testando Status 404
     def test_recipe_category_view_returns_404_if_no_recipes_found(self):
         response = self.client.get(reverse('recipes:category', kwargs={'category_id': 1000}))
         self.assertEqual(response.status_code, 404)
-
 
     def test_recipe_category_template_loads_recipes(self):
         needed_title = 'This is a category test'
@@ -71,12 +82,10 @@ class RecipeViewsTest(RecipeTestBase):
         # Check if one recipe exists
         self.assertIn(needed_title , content)
 
-
    # Testando Status 404
     def test_recipe_detail_view_returns_404_if_no_recipes_found(self):
         response = self.client.get(reverse('recipes:recipe', kwargs={'id': 1000}))
         self.assertEqual(response.status_code, 404)
-
 
     def test_recipe_detail_template_loads_the_correct_recipes(self):
         needed_title = 'This is a detail page - It load one recipe'
