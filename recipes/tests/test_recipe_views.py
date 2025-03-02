@@ -82,6 +82,16 @@ class RecipeViewsTest(RecipeTestBase):
         # Check if one recipe exists
         self.assertIn(needed_title , content)
 
+    def test_recipe_category_template_dont_load_recipes_not_published(self):
+        
+        '''Test category is_published False dont show'''
+        # Need a recipe for this test
+        recipe = self.make_recipe(is_published=False)
+
+        response = self.client.get(reverse('recipes:recipe', kwargs={'id': recipe.category.id}))
+
+        self.assertEqual(response.status_code, 404)
+
    # Testando Status 404
     def test_recipe_detail_view_returns_404_if_no_recipes_found(self):
         response = self.client.get(reverse('recipes:recipe', kwargs={'id': 1000}))
@@ -98,3 +108,13 @@ class RecipeViewsTest(RecipeTestBase):
 
         # Check if one recipe exists
         self.assertIn(needed_title , content)
+
+    def test_recipe_detail_template_dont_load_recipe_not_published(self):
+        
+        '''Test category is_published False dont show'''
+        # Need a recipe for this test
+        recipe = self.make_recipe(is_published=False)
+
+        response = self.client.get(reverse('recipes:recipe', kwargs={'id': recipe.id}))
+
+        self.assertEqual(response.status_code, 404)
