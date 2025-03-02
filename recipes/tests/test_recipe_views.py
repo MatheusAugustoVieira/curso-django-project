@@ -1,7 +1,11 @@
+# from unittest import skip
 from django.urls import reverse, resolve
 from recipes import views
-from .test_recipe_base import RecipeTestBase, Recipe
 
+from .test_recipe_base import RecipeTestBase
+
+
+# @skip -> utilizado para pular tests
 
 # Realizando teste das views para identificar se tem algum erro
 class RecipeViewsTest(RecipeTestBase):
@@ -33,12 +37,13 @@ class RecipeViewsTest(RecipeTestBase):
         self.assertIn(
             '<h1>No recipes found here 🥲</h1>',
             response.content.decode('utf-8')
-            )
+        )
+        
         
     def test_recipe_home_template_loads_recipes(self):
         # Need a recipe for this test
         self.make_recipe()
-        
+
         response = self.client.get(reverse('recipes:home'))
         content = response.content.decode('utf-8')
         response_context_recipes = response.context['recipes']
