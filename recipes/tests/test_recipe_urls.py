@@ -1,6 +1,9 @@
 from django.test import TestCase
 from django.urls import reverse
 
+''' Aqui sera realizado os testes nas urls
+observando se elas estao executando tudo corretamente'''
+
 
 # Realizando teste de urls para identificar se tem algum erro
 class RecipeURLsTest(TestCase):
