@@ -2,6 +2,10 @@ from .test_recipe_base import RecipeTestBase, Recipe
 from django.core.exceptions import ValidationError
 from parameterized import parameterized
 
+'''Essa parte do teste ficara responsavel por cuidar da parte de models
+onde cada teste é executado nas funcionalidades max_length e default do models.py'''
+
+
 
 class RecipeModelTest(RecipeTestBase):
     def setUp(self) -> None:
