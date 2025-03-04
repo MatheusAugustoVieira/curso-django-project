@@ -1,7 +1,7 @@
 from django.test import TestCase
 from recipes.models import Category, Recipe, User
 
-
+'''Essa parte sera a base os teste realizado'''
 
 
 class RecipeTestBase(TestCase):
