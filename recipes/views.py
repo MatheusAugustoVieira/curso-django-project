@@ -4,6 +4,7 @@ from utils.recipes.factory import *
 from recipes.models import Recipe
 
 
+
 def home(request):
     recipes = Recipe.objects.filter(
             is_published=True,

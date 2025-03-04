@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+''' A parte models ficara responsavel pela parte de construcao do form
+onde sera copulado com dados e migrado para os banco de dados, gosto de comecar pelos models 
+logo em seguida passo para as views'''
+
 
 class Category(models.Model):
     name = models.CharField(max_length=65)
@@ -29,4 +33,3 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
-
