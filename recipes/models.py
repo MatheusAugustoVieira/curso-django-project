@@ -2,9 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-''' A parte models ficara responsavel pela parte de construcao do form
-onde sera copulado com dados e migrado para os banco de dados, gosto de comecar pelos models 
-logo em seguida passo para as views'''
+''' models tem a funcionalidade de mapear o dados da base de dados e o seu codigo
+por isso o django se utiliza do modelo MTV Model-Template-View'''
 
 
 class Category(models.Model):

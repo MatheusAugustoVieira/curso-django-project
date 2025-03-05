@@ -3,9 +3,8 @@ from utils.recipes.factory import *
 
 from recipes.models import Recipe
 
-''' A parte das views sera onde ira mostrar o que cada pagina do site sera puxada e exibida ao usuario
-podendo ser dados vindo diretamente do Data Base e gosto de comecar nas views antes de ir para a urls
-ainda pretendo utilizar class based views'''
+''' A funcao da view e fazer a logica sobre o que ela ira mostrar
+para o usuario pretendo utilizar class based views'''
 
 def home(request):
     recipes = Recipe.objects.filter(
