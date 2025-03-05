@@ -4,6 +4,8 @@ from django.urls import reverse
 ''' Aqui sera realizado os testes nas urls
 observando se elas estao executando tudo corretamente'''
 
+# RED - GREEN - REFACTOR
+
 
 # Realizando teste de urls para identificar se tem algum erro
 class RecipeURLsTest(TestCase):
@@ -18,4 +20,8 @@ class RecipeURLsTest(TestCase):
     def test_recipe_detail_url_is_correct(self):
         url = reverse('recipes:recipe', kwargs={'id': 1})
         self.assertEqual(url, '/recipes/1/')
+
+    def test_recipe_search_url_is_correct(self):
+        url = reverse('recipes:search')
+        self.assertEqual(url, '/recipes/search/')
 
