@@ -2,6 +2,7 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404
 from utils.recipes.factory import *
 
 from recipes.models import Recipe
+from django.http import Http404
 
 ''' A funcao da view e fazer a logica sobre o que ela ira mostrar
 para o usuario pretendo utilizar class based views'''
@@ -39,4 +40,9 @@ def recipe(request, id):
 })
 
 def search(request):
+    search_term = request.GET.get('q')
+
+    if not search_term:
+        raise Http404()
+
     return render(request, 'recipes/pages/search.html')
