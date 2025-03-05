@@ -1,8 +1,8 @@
 from .test_recipe_base import RecipeTestBase
 from django.core.exceptions import ValidationError
 
-'''Essa parte do teste ficara responsavel por cuidar da parte de models
-onde cada teste é executado nas funcionalidades max_length'''
+'''Essa parte do teste ficara responsavel por cuidar da parte category
+em models sendo executado no max_length'''
 
 
 class RecipeCategoryModelTest(RecipeTestBase):
