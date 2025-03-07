@@ -5,8 +5,11 @@ from recipes import views
 from .test_recipe_base import RecipeTestBase
 
 
-''' Aqui sera a parte responsavel por orquestrar os testes da views
-mostrando se tudo esta indo de acordo ate nas mensagens de erro da pagina'''
+''' This will be the part responsible for 
+orchestrating the view tests, 
+showing whether everything is 
+going as expected, including the 
+page's error messages.'''
 
 
 # @skip -> utilizado para pular tests
