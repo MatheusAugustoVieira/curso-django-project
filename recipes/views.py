@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
-from utils.recipes.factory import *
 from django.db.models import Q
 from recipes.models import Recipe
 from django.http.response import Http404
