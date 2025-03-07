@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-''' models tem a funcionalidade de mapear o dados da base de dados e o seu codigo
-por isso o django se utiliza do modelo MTV Model-Template-View'''
+''' models have the functionality to map the database data and its code
+that's why Django uses the MTV Model-Template-View model'''
 
 
 class Category(models.Model):

@@ -3,10 +3,9 @@ from django.urls import path
 from . import views
 
 
-''' Essa sera a parte onde os usuarios irao colocar nas urls do seu navegador
-para ter acesso a determinadas areas do site ou navegar pelo site mesmo,
-qualquer alteracao feita na url pode acarretar em erro nos seus teste, porem 
-as urls devem ser fixas para cada site'''
+'''This is where users will enter URLs into their browsers to access 
+certain areas of the site or navigate the site itself. 
+Any changes made to the URL may result in errors in your tests, but URLs should be fixed for each site.'''
 
 app_name = 'recipes'
 

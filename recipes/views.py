@@ -4,8 +4,9 @@ from django.db.models import Q
 from recipes.models import Recipe
 from django.http.response import Http404
 
-''' A funcao da view e fazer a logica sobre o que ela ira mostrar
-para o usuario pretendo utilizar class based views'''
+''' The function of the view is to create 
+the logic about what it will show to 
+the user. I intend to use class based views'''
 
 def home(request):
     recipes = Recipe.objects.filter(
