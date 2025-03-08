@@ -3,6 +3,8 @@ from django.db.models import Q
 from recipes.models import Recipe
 from django.http.response import Http404
 
+from django.core.paginator import Paginator
+
 ''' The function of the view is to create 
 the logic about what it will show to 
 the user. I intend to use class based views'''
@@ -11,6 +13,10 @@ def home(request):
     recipes = Recipe.objects.filter(
             is_published=True,
             ).order_by('-id')
+    
+    current_page = request.GET.get('page', 1)
+    paginator = Paginator(recipes, 9)
+    page_object = paginator.get_page(current_page)
     
     return render(request, 'recipes/pages/home.html', context={
         'recipes': recipes,
