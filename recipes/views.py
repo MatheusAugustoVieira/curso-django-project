@@ -19,7 +19,7 @@ def home(request):
     page_object = paginator.get_page(current_page)
     
     return render(request, 'recipes/pages/home.html', context={
-        'recipes': recipes,
+        'recipes': page_object,
 })
 
 
