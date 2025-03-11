@@ -12,7 +12,7 @@ the logic about what it will show to
 the user. I intend to use class based views'''
 
 
-PER_PAGE = os.environ.get('PER_PAGE', 6)
+PER_PAGE = int(os.environ.get('PER_PAGE', 6))
 
 def home(request):
     recipes = Recipe.objects.filter(
